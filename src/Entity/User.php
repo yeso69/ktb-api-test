@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,12 +23,12 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstname;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastname;
+    private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,33 +38,49 @@ class User
     /**
      * @ORM\Column(type="datetime")
      */
-    private $birthdate;
+    private $birthDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Company::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $company;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ExpenseReport::class, mappedBy="user")
+     */
+    private $expanseReports;
+
+    public function __construct()
+    {
+        $this->expanseReports = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setFirstName(string $firstName): self
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getLastName(): ?string
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
-    public function setLastname(string $lastname): self
+    public function setLastName(string $lastName): self
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -79,14 +97,56 @@ class User
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getBirthDate(): ?\DateTimeInterface
     {
-        return $this->birthdate;
+        return $this->birthDate;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthDate(\DateTimeInterface $birthDate): self
     {
-        $this->birthdate = $birthdate;
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ExpenseReport>
+     */
+    public function getExpanseReports(): Collection
+    {
+        return $this->expanseReports;
+    }
+
+    public function addExpanseReport(ExpenseReport $expanseReport): self
+    {
+        if (!$this->expanseReports->contains($expanseReport)) {
+            $this->expanseReports[] = $expanseReport;
+            $expanseReport->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExpanseReport(ExpenseReport $expanseReport): self
+    {
+        if ($this->expanseReports->removeElement($expanseReport)) {
+            // set the owning side to null (unless already changed)
+            if ($expanseReport->getUser() === $this) {
+                $expanseReport->setUser(null);
+            }
+        }
 
         return $this;
     }

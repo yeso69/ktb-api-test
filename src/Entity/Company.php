@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
  *
- * @ApiResource
+ * @ApiResource(
+ *     collectionOperations={"get", "post"},
+ *     itemOperations={"get", "delete"}
+ * )
+ *
  */
 class Company
 {

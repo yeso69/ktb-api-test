@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ExpenseReportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ExpenseReportRepository::class)
@@ -21,21 +24,26 @@ class ExpenseReport
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\Type("\DateTimeInterface",message="field.invalid_date")
      */
     private $date;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Positive()
      */
     private $amount;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $type;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
+     * @Assert\Type("\DateTimeInterface",message="field.invalid_date")
      */
     private $createdAt;
 
@@ -50,12 +58,12 @@ class ExpenseReport
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(\DateTime $date): self
     {
         $this->date = $date;
 
@@ -86,12 +94,12 @@ class ExpenseReport
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 

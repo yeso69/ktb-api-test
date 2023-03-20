@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb9b1c6808f3a43f2768f3cd83542179",
+    "content-hash": "f6803740a07c08df51e9aa79c6f84db4",
     "packages": [
         {
             "name": "api-platform/core",
@@ -1396,40 +1396,44 @@
         },
         {
             "name": "doctrine/persistence",
-            "version": "3.1.4",
+            "version": "2.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "8bf8ab15960787f1a49d405f6eb8c787b4841119"
+                "reference": "e36f22765f4d10a7748228babbf73da5edfeed3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/8bf8ab15960787f1a49d405f6eb8c787b4841119",
-                "reference": "8bf8ab15960787f1a49d405f6eb8c787b4841119",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/e36f22765f4d10a7748228babbf73da5edfeed3c",
+                "reference": "e36f22765f4d10a7748228babbf73da5edfeed3c",
                 "shasum": ""
             },
             "require": {
+                "doctrine/cache": "^1.11 || ^2.0",
+                "doctrine/collections": "^1.0",
+                "doctrine/deprecations": "^0.5.3 || ^1",
                 "doctrine/event-manager": "^1 || ^2",
-                "php": "^7.2 || ^8.0",
+                "php": "^7.1 || ^8.0",
                 "psr/cache": "^1.0 || ^2.0 || ^3.0"
             },
             "conflict": {
+                "doctrine/annotations": "<1.0 || >=3.0",
                 "doctrine/common": "<2.10"
             },
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11",
-                "doctrine/coding-standard": "^11",
+                "doctrine/annotations": "^1 || ^2",
+                "doctrine/coding-standard": "^9 || ^11",
                 "doctrine/common": "^3.0",
-                "phpstan/phpstan": "1.9.4",
-                "phpstan/phpstan-phpunit": "^1",
-                "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "^8.5 || ^9.5",
+                "phpstan/phpstan": "~1.4.10 || 1.9.4",
+                "phpunit/phpunit": "^7.5.20 || ^8.5 || ^9.5",
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0",
                 "vimeo/psalm": "4.30.0 || 5.3.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
+                    "Doctrine\\Common\\": "src/Common",
                     "Doctrine\\Persistence\\": "src/Persistence"
                 }
             },
@@ -1464,7 +1468,7 @@
                 }
             ],
             "description": "The Doctrine Persistence project is a set of shared interfaces and functionality that the different Doctrine object mappers share.",
-            "homepage": "https://www.doctrine-project.org/projects/persistence.html",
+            "homepage": "https://doctrine-project.org/projects/persistence.html",
             "keywords": [
                 "mapper",
                 "object",
@@ -1474,7 +1478,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/3.1.4"
+                "source": "https://github.com/doctrine/persistence/tree/2.5.7"
             },
             "funding": [
                 {
@@ -1490,7 +1494,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-03T11:13:07+00:00"
+            "time": "2023-02-03T15:51:16+00:00"
         },
         {
             "name": "doctrine/sql-formatter",
@@ -1866,24 +1870,27 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d"
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
                 "shasum": ""
             },
             "require": {
+                "doctrine/deprecations": "^1.0",
                 "php": "^7.4 || ^8.0",
-                "phpdocumentor/reflection-common": "^2.0"
+                "phpdocumentor/reflection-common": "^2.0",
+                "phpstan/phpdoc-parser": "^1.13"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
+                "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan": "^1.8",
                 "phpstan/phpstan-phpunit": "^1.1",
@@ -1915,9 +1922,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.2"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.7.0"
             },
-            "time": "2022-10-14T12:47:21+00:00"
+            "time": "2023-03-12T10:13:29+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -2008,6 +2015,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "time": "2016-08-06T20:24:11+00:00"
         },
         {
@@ -2052,6 +2062,10 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/1.1.2"
+            },
             "time": "2021-11-05T16:50:12+00:00"
         },
         {
@@ -2098,6 +2112,10 @@
                 "psr",
                 "psr-14"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/event-dispatcher/issues",
+                "source": "https://github.com/php-fig/event-dispatcher/tree/1.0.0"
+            },
             "time": "2019-01-08T18:20:26+00:00"
         },
         {
@@ -2197,6 +2215,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
             "time": "2021-05-03T11:20:27+00:00"
         },
         {
@@ -2351,6 +2372,9 @@
                 "caching",
                 "psr6"
             ],
+            "support": {
+                "source": "https://github.com/symfony/cache/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2427,6 +2451,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/cache-contracts/tree/v2.5.2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2503,6 +2530,9 @@
             ],
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/config/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2599,6 +2629,9 @@
                 "console",
                 "terminal"
             ],
+            "support": {
+                "source": "https://github.com/symfony/console/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2685,6 +2718,9 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2749,6 +2785,9 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2934,6 +2973,9 @@
                 "env",
                 "environment"
             ],
+            "support": {
+                "source": "https://github.com/symfony/dotenv/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3002,6 +3044,9 @@
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/error-handler/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3084,6 +3129,9 @@
             ],
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3160,6 +3208,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3284,6 +3335,9 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3344,6 +3398,9 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/finder/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3405,6 +3462,10 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
+            "support": {
+                "issues": "https://github.com/symfony/flex/issues",
+                "source": "https://github.com/symfony/flex/tree/v1.19.5"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3553,6 +3614,9 @@
             ],
             "description": "Provides a tight integration between Symfony components and the Symfony full-stack framework",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/framework-bundle/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3626,6 +3690,9 @@
             ],
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3735,6 +3802,9 @@
             ],
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/http-kernel/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3886,6 +3956,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3967,6 +4040,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4047,6 +4123,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4123,6 +4202,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4203,6 +4285,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4279,6 +4364,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.27.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4538,6 +4626,9 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "source": "https://github.com/symfony/routing/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4612,6 +4703,9 @@
             ],
             "description": "Enables decoupling PHP applications from global state",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/runtime/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5049,16 +5143,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v5.4.21",
+            "version": "v5.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "e35b42d69a8b447cc3e6c9b3f98938c596b6c60a"
+                "reference": "e80871599f6f0929bb349afc3d9ecaba783e68bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/e35b42d69a8b447cc3e6c9b3f98938c596b6c60a",
-                "reference": "e35b42d69a8b447cc3e6c9b3f98938c596b6c60a",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/e80871599f6f0929bb349afc3d9ecaba783e68bd",
+                "reference": "e80871599f6f0929bb349afc3d9ecaba783e68bd",
                 "shasum": ""
             },
             "require": {
@@ -5070,7 +5164,7 @@
             "conflict": {
                 "doctrine/annotations": "<1.12",
                 "phpdocumentor/reflection-docblock": "<3.2.2",
-                "phpdocumentor/type-resolver": "<1.4.0|>=1.7.0",
+                "phpdocumentor/type-resolver": "<1.4.0",
                 "symfony/dependency-injection": "<4.4",
                 "symfony/property-access": "<5.4",
                 "symfony/property-info": "<5.3.13",
@@ -5078,7 +5172,7 @@
                 "symfony/yaml": "<4.4"
             },
             "require-dev": {
-                "doctrine/annotations": "^1.12|^2",
+                "doctrine/annotations": "^1.12",
                 "phpdocumentor/reflection-docblock": "^3.2|^4.0|^5.0",
                 "symfony/cache": "^4.4|^5.0|^6.0",
                 "symfony/config": "^4.4|^5.0|^6.0",
@@ -5132,7 +5226,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v5.4.21"
+                "source": "https://github.com/symfony/serializer/tree/v5.4.15"
             },
             "funding": [
                 {
@@ -5148,7 +5242,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-21T19:46:44+00:00"
+            "time": "2022-10-23T09:52:07+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -5214,6 +5308,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/service-contracts/tree/v2.5.2"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5359,6 +5456,9 @@
                 "utf-8",
                 "utf8"
             ],
+            "support": {
+                "source": "https://github.com/symfony/string/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5846,6 +5946,9 @@
                 "debug",
                 "dump"
             ],
+            "support": {
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5916,6 +6019,9 @@
                 "instantiate",
                 "serialize"
             ],
+            "support": {
+                "source": "https://github.com/symfony/var-exporter/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6075,6 +6181,9 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v5.4.21"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6435,33 +6544,35 @@
         },
         {
             "name": "hautelook/alice-bundle",
-            "version": "v2.6.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceBundle.git",
-                "reference": "603e6cb04214ceb5cb6da866ca595eb152b4e888"
+                "reference": "016ff236de2b103a88f734cb98761588b7db8b2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceBundle/zipball/603e6cb04214ceb5cb6da866ca595eb152b4e888",
-                "reference": "603e6cb04214ceb5cb6da866ca595eb152b4e888",
+                "url": "https://api.github.com/repos/theofidry/AliceBundle/zipball/016ff236de2b103a88f734cb98761588b7db8b2f",
+                "reference": "016ff236de2b103a88f734cb98761588b7db8b2f",
                 "shasum": ""
             },
             "require": {
-                "doctrine/data-fixtures": "^1.2",
-                "doctrine/doctrine-bundle": "^1.8 || ^2.0",
-                "doctrine/orm": "^2.5.11",
-                "php": "^7.2",
-                "psr/log": "^1.0",
-                "symfony/finder": "^3.4 || ^4.0 || ^5.0",
-                "symfony/framework-bundle": "^3.4.24 || ^4.0 || ^5.0",
-                "theofidry/alice-data-fixtures": "^1.0"
+                "doctrine/data-fixtures": "^1.5",
+                "doctrine/doctrine-bundle": "^2.5",
+                "doctrine/orm": "^2.10.0",
+                "doctrine/persistence": "^2.2",
+                "php": "^7.4 || ^8.0",
+                "psr/log": "^1.0 || ^2.0 || ^3.0",
+                "symfony/finder": "^5.4.2 || ^6.0",
+                "symfony/framework-bundle": "^5.4.2 || ^6.0",
+                "theofidry/alice-data-fixtures": "^1.5"
             },
             "require-dev": {
-                "doctrine/persistence": "^1.0",
+                "doctrine/shards": "^1.0",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/phpunit": "^8.5",
-                "symfony/phpunit-bridge": "^3.4.31 || ^4.0 || ^5.0"
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5",
+                "symfony/phpunit-bridge": "^6.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -6501,9 +6612,9 @@
             ],
             "support": {
                 "issues": "https://github.com/theofidry/AliceBundle/issues",
-                "source": "https://github.com/theofidry/AliceBundle/tree/v2.6.0"
+                "source": "https://github.com/theofidry/AliceBundle/tree/2.10.0"
             },
-            "time": "2020-01-09T13:08:10+00:00"
+            "time": "2022-01-01T18:24:08+00:00"
         },
         {
             "name": "justinrainbow/json-schema",

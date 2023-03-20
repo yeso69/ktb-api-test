@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataPersisters\ExpenseReport;
 
 use ApiPlatform\Core\DataPersister\DataPersisterInterface;
 use App\Entity\ExpenseReport;
 use Doctrine\ORM\EntityManagerInterface;
 
-class PostPersister implements DataPersisterInterface
+final class PostPersister implements DataPersisterInterface
 {
     /**
      * @var EntityManagerInterface
@@ -25,7 +27,7 @@ class PostPersister implements DataPersisterInterface
 
     public function persist($data)
     {
-        $data->setCreatedAt( new \DateTimeImmutable());
+        $data->setCreatedAt( new \DateTime());
         $this->em->persist($data);
         $this->em->flush();
     }

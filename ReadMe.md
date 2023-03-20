@@ -35,10 +35,10 @@ This is a REST API developed with Symfony 5 and API Platform to handle expense r
 5. Load fixtures:
 
     ```
-    php bin/console doctrine:fixtures:load
+    php bin/console hautelook:fixtures:load
     ```
 
-With the fixtures loaded, you now have a user with id 1, that belongs to a company. You can use it to create expanse reports.
+With the fixtures loaded, it creates a company with a user that has 5 expanse reports. You will be able to user user with id 1 to create expanse reports.
 
 ## Usage
 

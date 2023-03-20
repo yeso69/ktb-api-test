@@ -1,0 +1,7 @@
+App\Entity\Company:
+  user_1:
+    firstname: <firstName()>
+    lastname: <lastName()>
+    email: <email()>
+    birthdate: <date_create()>
+    company: <@company_*>
